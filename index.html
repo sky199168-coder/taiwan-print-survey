@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>台灣風景版畫｜創作地點探索問卷</title>
+<style>
+:root{--ink:#202522;--muted:#68716b;--paper:#f5f3ec;--card:#fffefa;--line:#d9ddd5;--accent:#315c4b;--soft:#e8eee7;--field:#fff;--head:#263c33;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--ink:#e8ece6;--muted:#a3ada6;--paper:#171c19;--card:#202723;--line:#37413b;--accent:#7fbf9f;--soft:#2a3830;--field:#161b18;--head:#1d2d25}}
+:root[data-theme="dark"]{--ink:#e8ece6;--muted:#a3ada6;--paper:#171c19;--card:#202723;--line:#37413b;--accent:#7fbf9f;--soft:#2a3830;--field:#161b18;--head:#1d2d25}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","Microsoft JhengHei",sans-serif;line-height:1.65}
+header{background:var(--head);color:#fff;padding:48px 22px 42px;border-bottom:7px solid #b7a77e}
+.hero{max-width:900px;margin:auto}.eyebrow{letter-spacing:.18em;font-size:12px;color:#d9d2bd}.hero h1{font-size:clamp(28px,5vw,46px);line-height:1.2;margin:12px 0}.hero p{color:#e1e8e1;max-width:650px;margin:0}
+main{max-width:900px;margin:28px auto;padding:0 18px 60px}.panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;margin:18px 0}
+h2{font-size:21px;margin:0 0 6px}.hint{color:var(--muted);font-size:14px;margin:0 0 18px}
+textarea{width:100%;border:1px solid var(--line);border-radius:10px;padding:12px;font:inherit;background:var(--field);color:var(--ink)}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(175px,1fr));gap:10px}
+.choice{display:flex;gap:9px;align-items:flex-start;border:1px solid var(--line);border-radius:12px;padding:12px;background:var(--field);cursor:pointer}
+.choice:has(input:checked){border-color:var(--accent);background:var(--soft);box-shadow:inset 0 0 0 1px var(--accent)}
+.choice input{margin-top:5px;accent-color:var(--accent)}.choice strong{display:block}.choice small{display:block;color:var(--muted);font-size:12px}
+button{border:0;border-radius:999px;background:var(--accent);color:#fff;padding:13px 23px;font:inherit;font-weight:700;cursor:pointer}
+:root[data-theme="dark"] button:not(.secondary){color:#10201a}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) button:not(.secondary){color:#10201a}}
+button.secondary{background:var(--soft);color:var(--ink);border:1px solid var(--line)}.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+#results{display:none}.result-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:12px}
+.place{border:1px solid var(--line);border-radius:13px;padding:15px;background:var(--field)}.place h3{margin:0 0 4px;font-size:17px}.tag{display:inline-block;background:var(--soft);color:var(--accent);border-radius:99px;padding:2px 9px;font-size:12px;margin:2px 4px 7px 0}.place p{font-size:14px;margin:5px 0}.place b{color:var(--accent)}
+.result-head{display:flex;justify-content:space-between;gap:12px;align-items:start;flex-wrap:wrap}
+footer{text-align:center;color:var(--muted);font-size:12px;padding:20px}
+@media print{body{background:#fff;color:#000}.panel{break-inside:avoid}header{background:#fff;color:#000;border-bottom:2px solid #000}.hero p,.eyebrow{color:#333}button,.actions{display:none}#results{display:block!important}}
+</style>
+</head>
+<body>
+<header><div class="hero"><div class="eyebrow">ART &amp; PLACE · STUDENT WORKSHEET</div><h1>台灣風景版畫<br>創作地點探索問卷</h1><p>從城市街道、山林海岸到地方生活，選一個讓你想刻下來的台灣風景。完成問卷後，系統會推薦適合你的創作地點與構圖方向。</p></div></header>
+<main>
+<form id="survey">
+<section class="panel">
+<h2>01｜你想描繪哪一種台灣風景？</h2><p class="hint">可複選，選出最吸引你的景觀類型。</p>
+<div class="choices">
+<label class="choice"><input type="checkbox" name="scene" value="city"><span><strong>熱鬧城市</strong><small>高樓、街道、招牌、車站</small></span></label>
+<label class="choice"><input type="checkbox" name="scene" value="old"><span><strong>老街與歷史建築</strong><small>老屋、廟宇、騎樓、巷弄</small></span></label>
+<label class="choice"><input type="checkbox" name="scene" value="mountain"><span><strong>山城與山林</strong><small>山巒、森林、茶園、階梯聚落</small></span></label>
+<label class="choice"><input type="checkbox" name="scene" value="sea"><span><strong>海岸與港口</strong><small>漁船、燈塔、海浪、港邊房屋</small></span></label>
+<label class="choice"><input type="checkbox" name="scene" value="rail"><span><strong>鐵道與交通</strong><small>火車、月台、橋梁、公路</small></span></label>
+<label class="choice"><input type="checkbox" name="scene" value="rural"><span><strong>田園與鄉村</strong><small>稻田、農舍、埤塘、田間道路</small></span></label>
+<label class="choice"><input type="checkbox" name="scene" value="market"><span><strong>市場與日常生活</strong><small>夜市、攤販、街坊、人情</small></span></label>
+<label class="choice"><input type="checkbox" name="scene" value="nature"><span><strong>自然風景</strong><small>瀑布、湖泊、樹木、特殊地形</small></span></label>
+</div>
+</section>
+<section class="panel">
+<h2>02｜你喜歡什麼樣的畫面？</h2><p class="hint">選擇最接近你想做成版畫的感覺。</p>
+<div class="choices">
+<label class="choice"><input type="radio" name="mood" value="dense" checked><span><strong>熱鬧、豐富</strong><small>細節多、元素密集</small></span></label>
+<label class="choice"><input type="radio" name="mood" value="calm"><span><strong>安靜、開闊</strong><small>留白多、視野寬廣</small></span></label>
+<label class="choice"><input type="radio" name="mood" value="bold"><span><strong>壯觀、有力量</strong><small>大型建築、山海地景</small></span></label>
+<label class="choice"><input type="radio" name="mood" value="nostalgic"><span><strong>懷舊、有故事</strong><small>老屋、古蹟、地方記憶</small></span></label>
+</div>
+</section>
+<section class="panel">
+<h2>03｜你希望作品出現哪些元素？</h2><p class="hint">可複選，這些元素能幫助你決定構圖。</p>
+<div class="choices">
+<label class="choice"><input type="checkbox" name="element" value="building"><span><strong>建築與窗格</strong></span></label>
+<label class="choice"><input type="checkbox" name="element" value="people"><span><strong>人物與生活</strong></span></label>
+<label class="choice"><input type="checkbox" name="element" value="vehicle"><span><strong>交通工具</strong></span></label>
+<label class="choice"><input type="checkbox" name="element" value="water"><span><strong>水面與倒影</strong></span></label>
+<label class="choice"><input type="checkbox" name="element" value="plants"><span><strong>樹木與植物</strong></span></label>
+<label class="choice"><input type="checkbox" name="element" value="sign"><span><strong>招牌與文字造型</strong></span></label>
+<label class="choice"><input type="checkbox" name="element" value="mountainline"><span><strong>山巒與遠景</strong></span></label>
+<label class="choice"><input type="checkbox" name="element" value="texture"><span><strong>磚牆、石階、屋瓦</strong></span></label>
+</div>
+</section>
+<section class="panel">
+<h2>04｜你想從哪個地區尋找靈感？</h2><p class="hint">也可以選「不限」，讓系統從全台灣推薦。</p>
+<div class="choices">
+<label class="choice"><input type="radio" name="region" value="all" checked><span><strong>全台灣，不限地區</strong></span></label>
+<label class="choice"><input type="radio" name="region" value="north"><span><strong>北部</strong><small>基隆、台北、新北、桃園、新竹</small></span></label>
+<label class="choice"><input type="radio" name="region" value="central"><span><strong>中部</strong><small>苗栗、台中、彰化、南投、雲林</small></span></label>
+<label class="choice"><input type="radio" name="region" value="south"><span><strong>南部</strong><small>嘉義、台南、高雄、屏東</small></span></label>
+<label class="choice"><input type="radio" name="region" value="east"><span><strong>東部與離島</strong><small>宜蘭、花蓮、台東、澎湖、金門、馬祖</small></span></label>
+</div>
+</section>
+<section class="panel">
+<h2>05｜你心中有沒有已經想去的地方？</h2><p class="hint">可填寫城市、景點，或你曾經看過的風景；沒有也沒關係。</p>
+<textarea id="idea" rows="3" placeholder="例如：我想畫有火車經過的山城，或是台東的海岸……"></textarea>
+<div class="actions"><button type="submit">幫我推薦創作地點 →</button><button class="secondary" type="reset">重新填寫</button></div>
+</section>
+</form>
+<section class="panel" id="results">
+<div class="result-head"><div><div class="eyebrow" style="color:var(--muted)">YOUR CREATIVE DIRECTIONS</div><h2>你的台灣風景創作推薦</h2><p class="hint" id="summary"></p></div><button class="secondary" onclick="window.print()">列印推薦結果</button></div>
+<div class="result-grid" id="recommendations"></div>
+<div class="actions"><button onclick="window.print()">列印／另存 PDF</button><button class="secondary" onclick="document.getElementById('survey').scrollIntoView({behavior:'smooth'})">修改我的答案</button></div>
+</section>
+<footer>台灣風景版畫・創作前導學習單</footer>
+</main>
+<script>
+const places=[
+{n:"大稻埕迪化街",r:"台北",t:["old","city","market"],e:["building","sign","people","texture"],m:["dense","nostalgic"],c:"街道一點透視；以連續街屋、拱廊與招牌形成節奏。"},
+{n:"西門町街景",r:"台北",t:["city","market"],e:["building","people","vehicle","sign"],m:["dense","bold"],c:"低角度街景；把招牌整理成大小不同的黑白幾何塊。"},
+{n:"九份山城",r:"新北",t:["mountain","old","city"],e:["building","plants","mountainline","texture"],m:["dense","nostalgic","bold"],c:"高角度俯視；以階梯和屋頂層層堆疊，形成斜向動線。"},
+{n:"淡水河岸與渡船",r:"新北",t:["sea","city","rail"],e:["building","vehicle","water","mountainline"],m:["calm","nostalgic"],c:"前景安排船隻，中景放河岸建築，遠景以山線留白。"},
+{n:"大溪老街",r:"桃園",t:["old","city"],e:["building","sign","texture"],m:["dense","nostalgic"],c:"正面或斜角取景；強調牌樓、拱窗、立面裝飾。"},
+{n:"三峽老街",r:"新北",t:["old","city"],e:["building","texture","people"],m:["dense","nostalgic"],c:"正面構圖；連續拱廊重複排列，形成黑白節奏。"},
+{n:"南寮漁港",r:"新竹",t:["sea","city"],e:["building","vehicle","water"],m:["calm","bold"],c:"以漁船或港口地標為主體，水平線表現海面與天空。"},
+{n:"台中舊火車站",r:"台中",t:["rail","city","old"],e:["building","vehicle","texture"],m:["bold","nostalgic"],c:"車站正面搭配鐵軌透視；窗格和軌道形成規律線條。"},
+{n:"高美濕地",r:"台中",t:["sea","nature"],e:["water","plants","mountainline"],m:["calm","bold"],c:"低視角描繪天空與濕地倒影，以大片留白呈現寬廣感。"},
+{n:"鹿港老街",r:"彰化",t:["old","city"],e:["building","people","texture"],m:["dense","nostalgic"],c:"狹窄巷弄一點透視；屋簷和磚牆形成深色框景。"},
+{n:"日月潭",r:"南投",t:["mountain","nature","sea"],e:["water","plants","mountainline","vehicle"],m:["calm","bold"],c:"湖面作為大面積留白，山巒與船隻形成前中後景。"},
+{n:"阿里山森林鐵路",r:"嘉義",t:["mountain","rail","nature"],e:["vehicle","plants","mountainline"],m:["bold","nostalgic"],c:"鐵軌以斜線穿越森林；用樹幹直線與軌道曲線對比。"},
+{n:"檜意森活村",r:"嘉義",t:["old","city","nature"],e:["building","plants","texture"],m:["calm","nostalgic"],c:"斜角呈現木造宿舍；窗格、屋瓦與木板做重複刻線。"},
+{n:"台南神農街",r:"台南",t:["old","city","market"],e:["building","people","sign","texture"],m:["dense","nostalgic"],c:"狹長街道中央透視；用屋簷黑影襯托牆面與燈籠。"},
+{n:"安平古堡與老街",r:"台南",t:["old","city","nature"],e:["building","plants","texture"],m:["bold","nostalgic"],c:"以前景老樹或磚牆框住古堡，強化主體輪廓。"},
+{n:"駁二藝術特區",r:"高雄",t:["city","rail"],e:["building","vehicle","sign","texture"],m:["bold","dense"],c:"倉庫與鐵道採斜向構圖；用大色塊表現工業建築。"},
+{n:"旗津漁港",r:"高雄",t:["sea","city"],e:["vehicle","water","building"],m:["calm","bold"],c:"漁船置於前景，港邊房屋與燈塔作為背景層次。"},
+{n:"屏東勝利星村",r:"屏東",t:["old","city","nature"],e:["building","plants","texture"],m:["calm","nostalgic"],c:"木造日式建築搭配樹影；利用屋頂斜線建立視覺重心。"},
+{n:"花蓮七星潭",r:"花蓮",t:["sea","nature"],e:["water","mountainline","texture"],m:["calm","bold"],c:"海岸弧線與礫石形成節奏；遠山留白，突出海天交界。"},
+{n:"台東鐵花村與市區",r:"台東",t:["city","rail","market"],e:["building","people","sign"],m:["dense","nostalgic"],c:"以街道與裝置燈飾構成畫面，人物剪影增添生活感。"},
+{n:"伯朗大道與池上稻田",r:"台東",t:["rural","nature","mountain"],e:["plants","mountainline","vehicle"],m:["calm","bold"],c:"道路作為引導線，稻田形成大片留白，遠方安排山形。"},
+{n:"蘭嶼聚落與海岸",r:"離島",t:["sea","mountain","rural"],e:["building","water","plants","mountainline"],m:["calm","bold"],c:"以傳統聚落屋頂和海岸山形組合，注意尊重當地文化。"},
+{n:"澎湖雙心石滬",r:"離島",t:["sea","nature"],e:["water","texture"],m:["calm","bold"],c:"俯視呈現石滬輪廓，利用海面留白凸顯幾何形狀。"},
+{n:"金門模範街與閩式聚落",r:"離島",t:["old","city"],e:["building","texture","sign"],m:["dense","nostalgic"],c:"街屋正面或巷弄透視；強調燕尾屋脊與磚牆輪廓。"}
+];
+const regionMap={north:["台北","新北","桃園","新竹"],central:["台中","彰化","南投","嘉義"],south:["台南","高雄","屏東"],east:["花蓮","台東","宜蘭","離島"]};
+document.getElementById("survey").addEventListener("submit",e=>{
+e.preventDefault();
+const checked=name=>[...document.querySelectorAll('input[name="'+name+'"]:checked')].map(x=>x.value);
+const scenes=checked("scene"),elements=checked("element"),mood=document.querySelector('input[name="mood"]:checked').value,region=document.querySelector('input[name="region"]:checked').value;
+let pool=places.filter(p=>(region==="all"||regionMap[region].some(x=>p.r.includes(x)))&&(!scenes.length||p.t.some(x=>scenes.includes(x))));
+pool=pool.map(p=>({...p,score:p.t.filter(x=>scenes.includes(x)).length*3+p.e.filter(x=>elements.includes(x)).length*2+(p.m.includes(mood)?2:0)})).sort((a,b)=>b.score-a.score);
+if(!pool.length)pool=places;
+const chosen=pool.slice(0,6);
+document.getElementById("summary").textContent="依照你選擇的景觀、畫面感受與地區，整理出 "+chosen.length+" 個可以進一步查找照片的地點。";
+document.getElementById("recommendations").innerHTML=chosen.map((p,i)=>'<article class="place"><span class="tag">'+p.r+'</span><span class="tag">推薦 '+(i+1)+'</span><h3>'+p.n+'</h3><p><b>構圖方向</b><br>'+p.c+'</p></article>').join("");
+document.getElementById("results").style.display="block";
+document.getElementById("results").scrollIntoView({behavior:"smooth"});
+});
+document.querySelector('button[type="reset"]').addEventListener("click",()=>{document.getElementById("results").style.display="none"});
+</script>
+</body>
+</html>
